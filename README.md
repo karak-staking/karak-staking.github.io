@@ -1,1 +1,0 @@
-# karak-staking.github.io
