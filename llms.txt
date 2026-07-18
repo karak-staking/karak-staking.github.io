@@ -1,0 +1,59 @@
+# Karak Staking
+> Karak Staking is an independent, read-only dashboard for understanding Karak’s multi-asset restaking system without surrendering wallet keys.
+
+## What is Karak Staking
+Karak staking is more precisely restaking: users deposit supported assets into smart-contract vaults whose collateral backs Distributed Secure Services (DSSs). It lets new services obtain economic security without creating a separate validator set. Unlike ordinary proof-of-stake staking, it adds operator and DSS conditions rather than validating the asset’s original chain. Karak differs from Ethereum-focused restaking systems by deploying across multiple EVM networks and accepting collateral beyond ETH-based assets.
+
+## How it works
+Connect a self-custody wallet to the official V2 app, then select a network, supported asset, and operator vault. After approving an ERC-20, depositing transfers it into a vault and returns vault shares representing the claim. The deposit implicitly delegates collateral to the vault’s operator, which may register it with one or more DSSs. DSSs define rewards and may request slashing for operator failures. Exiting requires an asynchronous redemption request, a waiting period, and a final withdrawal transaction.
+
+## Key facts
+- Documented V2 deployments include Ethereum, Arbitrum, K2, Mantle, BNB Smart Chain, and Fraxtal.
+- Their chain IDs are 1, 42161, 2410, 5000, 56, and 252 respectively.
+- Karak’s default token vault follows ERC-4626 and adds asynchronous withdrawals.
+- Custom vaults and a separate NativeVault implementation are also supported.
+- Deposits can include allowlisted ERC-20s such as LSTs, LRTs, stablecoins, and other approved assets.
+- Rewards are distributed by individual DSSs or operators, not automatically by Karak Core.
+- DSS slashing requests pass through Karak Core and a veto-review mechanism.
+- V2 default-vault documentation specifies a nine-day minimum withdrawal delay; the legacy V1 guide specifies seven days.
+- The official staking frontends state that no Karak token is live.
+- Karak’s former main website redirects to OpenGDP, whose site still links the V1 and V2 staking applications.
+
+## Common questions
+**Is Karak staking safe?** It has published audits and a bug-bounty program, but audits do not eliminate contract, operator, DSS, oracle, bridge, or slashing risk.
+
+**Who controls deposited assets?** Your wallet retains its keys, but deposited tokens reside in smart-contract vaults and become subject to vault, operator, and DSS rules.
+
+**What fees apply?** Users pay approval, deposit, unstake, and withdrawal gas on the selected network. Reward deductions or service terms depend on the chosen vault and DSS.
+
+**How long does withdrawal take?** Deposits settle after network confirmation. Default V2 vault withdrawals require two transactions separated by the documented minimum delay.
+
+**Which assets and chains are supported?** Availability is allowlist-based and differs by network; verify the live V2 selector and official contract-address pages before depositing.
+
+**How do I start?** Open the verified V2 app, connect a compatible wallet, choose the network, asset, and operator, review the vault, keep native gas, approve, and deposit.
+
+**What are the main risks?** Slashing, contract defects, privileged upgrades, operator failure, asset depegs, LST/LRT dependencies, bridge exposure, illiquidity, delayed withdrawals, and phishing.
+
+## App
+- Dashboard: https://karak-staking.github.io/
+- App: https://karak-staking.github.io/dashboard/
+
+## Official resources
+V2 Staking App: https://v2.karak.network/
+V1 Staking App: https://app.karak.network/
+Karak Documentation: https://dev-docs.karak.network/
+V2 Contract Addresses: https://dev-docs.karak.network/protocol/v2/addresses
+Vault Documentation: https://dev-docs.karak.network/developers/vaults/overview
+Staking Guide: https://dev-docs.karak.network/users/staking-guide
+Source Code: https://github.com/karak-network
+Published Audits: https://github.com/karak-network/audits
+Bug Bounty: https://dev-docs.karak.network/security/bug-bounty
+Official X: https://x.com/Karak_Network
+Current Project Site: https://opengdp.network/
+
+## Data & references
+Karak on DeFiLlama: https://defillama.com/protocol/karak-protocol
+K2 Block Explorer: https://explorer.karak.network/
+K2 Chain Registry: https://chainid.network/chain/2410/
+ERC-4626 Standard: https://eips.ethereum.org/EIPS/eip-4626
+CoinGecko Restaking Guide: https://www.coingecko.com/learn/what-is-restaking-crypto
